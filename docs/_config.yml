@@ -11,51 +11,53 @@
 #    |  |  \   --. /  .'.  \  |  |
 #    `--'   `----''--'   '--' `--'
 
-
+# config file for demo site, DELETE IT IF YOU WANT.
 
 
 ## => Site Settings
 ##############################
-text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
-highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : # the base hostname & protocol for your site e.g. https://www.someone.com
-baseurl : # does not include hostname
-title   : Your Site Title
-description: > # this means to ignore newlines until "Language & timezone"
-  Your Site Description
+text_skin: dark # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
+highlight_theme: tomorrow-night # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
+url     : https://kitian616.github.io
+baseurl : /jekyll-TeXt-theme
+title   : TeXt Theme
+description: >
+  A super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.
 
 
 ## => Language and Timezone
 ##############################
-lang: # the language of your site, default as "en"
-timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
+lang: en # the language of your site, default as "en"
+timezone: Asia/Shanghai
 
 
 ## => Author and Social
 ##############################
 author:
-  type      : # "person" (default), "organization"
-  name      : Your Name
+  type      : organization # "person" (default), "organization"
+  name      : TeXt
   url       :
-  avatar    : # path or url of avatar image (square)
-  bio       : I am an amazing person.
-  email     :
-  facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
-  twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
-  weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
-  googleplus: # "user_id"   the last part of your profile url, e.g. https://plus.google.com/u/0/user_id
-  telegram  : # "user_name" the last part of your profile url, e.g. https://t.me/user_name
-  medium    : # "user_name" the last part of your profile url, e.g. https://medium.com/user_name
-  zhihu     : # "user_name" the last part of your profile url, e.g. https://www.zhihu.com/people/user_name
-  douban    : # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name
-  linkedin  : # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name
-  github    : # "user_name" the last part of your profile url, e.g. https://github.com/user_name
-  npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
+  avatar    : /assets/apple-touch-icon.png
+  bio: >
+    TeXt is a super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.
+    Similar to iOS 11 style, it has large and prominent titles, round buttons and cards.
+  email     : kitian616@outlook.com
+  facebook  :
+  twitter   : kitian616
+  weibo     : 234695683
+  googleplus: 101827554735084402671
+  telegram  :
+  medium    :
+  zhihu     :
+  douban    :
+  linkedin  :
+  github    : kitian616/jekyll-TeXt-theme
+  npm       :
 
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
-repository: user_name/repo_name
+repository: kitian616/jekyll-TeXt-theme
 repository_tree: master
 
 
@@ -63,7 +65,7 @@ repository_tree: master
 ##############################
 paths:
   root    : # title link url, "/" (default)
-  home    : # home layout url, "/" (default)
+  home    : /test/ # home layout url, "/" (default)
   archive : # "/archive.html" (default)
   rss     : # "/feed.xml" (default)
 
@@ -74,7 +76,7 @@ paths:
 excerpt_separator: <!--more-->
 
 ## license
-license: CC-BY-NC-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0"
+license: CC-BY-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0"
 
 ## TOC
 toc:
@@ -84,20 +86,20 @@ toc:
 ## => Markdown Enhancements
 ##############################
 ## Mathjax
-mathjax: # false (default), true
-mathjax_autoNumber: # false (default), true
+mathjax: true # false (default), true
+mathjax_autoNumber: true # false (default), true
 
 ## Mermaid
-mermaid: # false (default), true
+mermaid: true # false (default), true
 
 ## Chart
-chart: # false (default), true
+chart: true # false (default), true
 
 
 ## => Paginate
 ##############################
 paginate: 8
-paginate_path: /page:num # don't change this unless for special need
+paginate_path: /test/page:num # don't change this unless for special need
 
 
 ## => Sources
@@ -108,17 +110,18 @@ sources: # bootcdn (default), unpkg
 ## => Sharing
 ##############################
 sharing:
-  provider: false # false (default), "addtoany", "addthis", "custom"
+  provider: addthis # false (default), "addtoany", "addthis", "custom"
 
   ## AddThis
   addthis:
-    id: # AddThis pubid, e.g. ra-5xxxxxxxxxxx
+    id: ra-5be59ee2486770cb # AddThis pubid, e.g. ra-5xxxxxxxxxxx
 
 
 ## => Comments
 ##############################
 comments:
-  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: gitalk # false (default), "disqus", "gitalk", "valine", "custom"
+  # provider: valine
 
   ## Disqus
   disqus:
@@ -127,18 +130,18 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : # GitHub Application Client ID
-    clientSecret: # GitHub Application Client Secret
-    repository  : # GitHub repo
-    owner       : # GitHub repo owner
-    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      # - your GitHub Id
+    clientID    : 143666b578a416f82175
+    clientSecret: 1d1c0604a1a4bff9b59ab7f56724dc0e8b837775
+    repository  : gitalk-demo
+    owner       : kitian616
+    admin:
+      - kitian616
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
   valine:
-    app_id      : # LeanCloud App id
-    app_key     : # LeanCloud App key
+    app_id      : uAG3OhdcH8H4fxSqXLyBljA7-gzGzoHsz
+    app_key     : Mzf5m9skSwYVWVXhGiYMNyXs
     placeholder : # Prompt information
     visitor     : # false (default)
     meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
@@ -147,13 +150,13 @@ comments:
 ## => Pageview
 ##############################
 pageview:
-  provider: false # false (default), "leancloud", "custom"
+  provider: leancloud # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
-    app_id    : # LeanCloud App id
-    app_key   : # LeanCloud App key
-    app_class : # LeanCloud App class
+    app_id    : uAG3OhdcH8H4fxSqXLyBljA7-gzGzoHsz
+    app_key   : Mzf5m9skSwYVWVXhGiYMNyXs
+    app_class : TeXtDemo
 
 
 ## => Search
@@ -169,12 +172,12 @@ search:
 ## => Analytics
 ##############################
 analytics:
-  provider: false # false (default), "google", "custom"
+  provider: google # false (default), "google", "custom"
 
   ## Google Analytics
   google:
-    tracking_id : # Google Analytics id for the site
-    anonymize_ip: false # Anonymize IP tracking for Analytics
+    tracking_id : UA-71907556-1
+    anonymize_ip: false
 
 
 ## => Build
@@ -195,13 +198,33 @@ exclude:
   - jekyll-text-theme.gemspec
   - package-lock.json
   - package.json
-  - /docs
+  # - /docs
   - /node_modules
-  - /screenshots
-  - /test
+  # - /screenshots
+  # - /test
   - /vendor
+  - /_posts
+  - /index.html
+
+collections_dir: docs
+collections:
+  docs:
+    output: true
+  sample_page:
+    output: true
+  sample_articles:
+    output: true
+  sample_languages:
+    output: true
 
 defaults:
+  ## home
+  - scope:
+      path: "test"
+    values:
+      articles:
+        excerpt_type: html
+  ## posts
   - scope:
       path: ""
       type: posts
@@ -209,11 +232,60 @@ defaults:
       layout: article
       sharing: true
       license: true
+      category: post
       aside:
         toc: true
       show_edit_on_github: true
       show_subscribe: true
       pageview: true
+      # lightbox: true
+  ## samples
+  - scope:
+      path: ""
+      type: sample_page
+    values:
+      nav_key: samples
+  - scope:
+      path: ""
+      type: sample_articles
+    values:
+      nav_key: samples
+      show_date: false
+  - scope:
+      path: ""
+      type: sample_languages
+    values:
+      layout: article
+      nav_key: samples
+      show_date: false
+  ## docs
+  - scope:
+      path: "_docs/en"
+    values:
+      layout: article
+      nav_key: docs
+      sidebar:
+        nav: docs-en
+      license: true
+      aside:
+        toc: true
+      show_edit_on_github: true
+      show_date: false
+      # lightbox: true
+  - scope:
+      path: "_docs/zh"
+    values:
+      layout: article
+      nav_key: docs
+      sidebar:
+        nav: docs-zh
+      license: true
+      aside:
+        toc: true
+      lang: zh
+      show_edit_on_github: true
+      show_date: false
+      # lightbox: true
 
 
 ## => Plugins
@@ -223,3 +295,5 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+
+data_dir: /docs/_data
