@@ -1,4 +1,4 @@
-remote_theme: allejo/jekyll-docs-theme
+theme: jekyll-text-theme
 name: IRIS
 
 project:
