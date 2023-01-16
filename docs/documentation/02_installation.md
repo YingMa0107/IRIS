@@ -4,11 +4,11 @@ title: Installation
 description: ~
 ---
 
-`CARD` is implemented as an R package, which can be installed from GitHub by:
+`IRIS` is implemented as an Rcpp package, which can be installed from GitHub by:
 
 ### Dependencies 
-* R version >= 4.0.0.
-* R packages: SingleCellExperiment, SummarizedExperiment, concaveman, sp, Matrix, methods, ggplot2, ggcorrplot, MuSiC, fields, MCMCpack, dplyr, sf, RANN, stats, reshape2, RColorBrewe, scatterpie, grDevices, stats, nnls, pbmcapply, spatstat, gtools, RcppML, NMF
+* R version >= 4.2.2.
+* Dependent R packages: Rcpp (>= 1.0.9), RcppArmadillo, SingleCellExperiment, SummarizedExperiment, methods, Matrix, MCMCpack, fields, wrMisc, RANN, stats, ggplot2, grDevices, reshape2
 
 
 #### 1. Install `devtools` if necessary
@@ -18,22 +18,22 @@ install.packages('devtools')
 
 #### 2. Install `CARD`
 ```r
-devtools::install_github('YingMa0107/CARD')
+devtools::install_github('YingMa0107/IRIS')
 ```
 #### 3. Load package
 ```r
-library(CARD)
+library(IRIS)
 ```
 
 This package is supported for Windows 10, MAC and Linux. The package has been tested on the following systems:
-- Windows 10: Home (1903)
-- MAC: OSX (10.14.1)
+- MAC (Catalina 10.15, Monterey 12.4)
 - Linux: Ubuntu (16.04.6)
+- Windows 10: Home (1903)
 
 #### 4. Some possible issues when installing the package, especially on the MacOS system
 (1) Cannot find tools necessary when using R in the MacOS system.
 ```r
-Error: Failed to install 'CARD' from GitHub:
+Error: Failed to install 'IRIS' from GitHub:
   Could not find tools necessary to compile a package
 Call `pkgbuild::check_build_tools(debug = TRUE)` to diagnose the problem.
 ``` 
