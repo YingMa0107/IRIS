@@ -2,7 +2,7 @@
 layout: full
 homepage: true
 disable_anchors: true
-description: Integrative and Reference-Informed Spatial Domain Detection for Spatial Transcriptomics 
+#description: Integrative and Reference-Informed Spatial Domain Detection for Spatial Transcriptomics 
 ---
 ## IRIS Overview
 <p align="center">
