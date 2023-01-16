@@ -69,7 +69,7 @@ a:hover { color: #4c94c2; }
 */
 
 pre, img {
-  max-width: 50%;
+  max-width: 100%;
   display: block;
 }
 
@@ -174,7 +174,7 @@ span.toc-section-number::after {
    }
 
    img {
-      max-width: 50% !important;
+      max-width: 100% !important;
    }
 
    @page :left {
