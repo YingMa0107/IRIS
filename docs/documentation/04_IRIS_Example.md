@@ -108,25 +108,17 @@ IRIS_object <- IRIS_spatial(IRIS_object,numCluster = numCluster)
 ```
 The results of detected domains are stored in `IRIS_obj@spatialDomain`. 
 ```r
-print(IRIS_obj@spatialDomain[1:2,])
-      Acinar_cells Ductal_terminal_ductal_like
-10x10 6.370860e-02                  0.02391251
-10x13 7.818278e-08                  0.02996182
-      Ductal_CRISP3_high-centroacinar_like Cancer_clone_A Ductal_MHC_Class_II
-10x10                            0.1801753   4.229928e-04         0.021557706
-10x13                            0.9620440   1.910394e-07         0.006437371
-      Cancer_clone_B      mDCs_A Ductal_APOL1_high-hypoxic   Tuft_cells
-10x10   4.339480e-05 0.011136707              4.967235e-04 2.025089e-03
-10x13   2.319262e-05 0.001013068              3.864917e-06 1.796433e-06
-            mDCs_B         pDCs Endocrine_cells Endothelial_cells Macrophages_A
-10x10 0.0792525811 7.432979e-07    6.848627e-03      1.722855e-01  9.909662e-02
-10x13 0.0004695018 1.566377e-11    3.925412e-11      4.198468e-11  2.766705e-05
-        Mast_cells Macrophages_B T_cells_&_NK_cells    Monocytes        RBCs
-10x10 7.411147e-11  3.090675e-02       4.976256e-06 2.663846e-06 3.84187e-10
-10x13 2.387132e-11  9.499908e-06       1.172387e-11 2.000116e-06 1.00967e-06
-       Fibroblasts
-10x10 3.081225e-01
-10x13 4.898874e-06
+print(IRIS_obj@spatialDomain[1:4,])
+                             Slice                    spotName        x
+113.141318028x147.434748552 151507 113.141318028x147.434748552 113.1413
+383.43835704x413.051319356  151507  383.43835704x413.051319356 383.4384
+129.522956756x231.008108766 151507 129.522956756x231.008108766 129.5230
+431.188133662x155.805585924 151507 431.188133662x155.805585924 431.1881
+                                   y IRIS_domain
+113.141318028x147.434748552 147.4347           3
+383.43835704x413.051319356  413.0513           1
+129.522956756x231.008108766 231.0081           4
+431.188133662x155.805585924 155.8056           6
 ```
 ### 3. Visualize the spatial domains detected by IRIS
 First, we jointly visualize the spatial domains detected by IRIS across multiple slices through scatter plot. In this plot, each panel represents on tissue slice with x and y axis represents the coordiates while each point is colored by their spatial domains.
