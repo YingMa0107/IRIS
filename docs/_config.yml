@@ -31,7 +31,7 @@ links:
       url: https://github.com/YingMa0107/IRIS/issues?state=open
 
 ui:
-  mode: 'light' # 'auto', 'dark', 'light'
+  mode: 'auto' # 'auto', 'dark', 'light'
   brand:
     dark: "#f7c1d2"
     light: "#a20000"
