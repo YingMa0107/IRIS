@@ -108,7 +108,7 @@ IRIS_object <- IRIS_spatial(IRIS_object,numCluster = numCluster)
 ```
 The results of detected domains are stored in `IRIS_obj@spatialDomain`. 
 ```r
-print(IRIS_obj@spatialDomain[1:4,])
+print(IRIS_object@spatialDomain[1:4,])
                              Slice                    spotName        x
 113.141318028x147.434748552 151507 113.141318028x147.434748552 113.1413
 383.43835704x413.051319356  151507  383.43835704x413.051319356 383.4384
