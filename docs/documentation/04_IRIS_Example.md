@@ -95,7 +95,7 @@ sample.varname = sample.varname,
 minCountGene = 100,
 minCountSpot =5) 
 ```
-The spatial data are stored in `IRIS_obj@spatial_countMat` and `IRIS_obj@spatial_location` while the scRNA-seq data is stored in IRIS_obj@sc_eset in the format of SingleCellExperiment. 
+The spatial data are stored in `IRIS_object@spatial_countMat` and `IRIS_object@spatial_location` while the scRNA-seq data is stored in IRIS_object@sc_eset in the format of SingleCellExperiment. 
 
 ### 2. Integrative spatial domain detection using IRIS
 Now we have everything stored in the IRIS object, we can use IRIS to perform the integrative and reference-informed spatial domain detection for spatial transcriptomics. IRIS is computationally fast and memory efficient. IRIS relies on an efficient optimization algorithm for constrained maximum likelihood estimation and is scalable to spatial transcriptomics with tens of thousands of spatial locations and tens of thousands of genes. For the example dataset with four tissue slices in 17780 spatial locations, it takes within 5 minutes to finish the analysis. 
