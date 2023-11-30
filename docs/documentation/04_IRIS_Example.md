@@ -158,7 +158,7 @@ IRIS_prop_location = IRIS_prop[,c("Slice","spotName","x","y")]
 IRIS_prop_location$x = IRIS_prop$y
 IRIS_prop_location$y = -IRIS_prop$x
 
-p2 <- IRIS.visualize.prop(
+p2 <- IRIS.visualize.eachProp(
 	proportion = IRIS_prop,        
 	spatial_location = IRIS_prop_location, 
 	ct.visualize = ct.visualize,                 #### selected cell types to visualize
