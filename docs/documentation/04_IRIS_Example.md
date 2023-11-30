@@ -163,7 +163,7 @@ p2 <- IRIS.visualize.eachProp(
 	spatial_location = IRIS_prop_location, 
 	ct.visualize = ct.visualize,                 #### selected cell types to visualize
 	colors = colors,                             #### if not provide, we will use the default colors
-	NumCols = 4)                                 #### number of columns in the figure panel
+	numCols = 4)                                 #### number of columns in the figure panel
 print(p2)
 
 ```
