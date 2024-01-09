@@ -176,15 +176,16 @@ multiple slices, along with spatial location information for each tissue
 slice.<br />
 - A marker gene list, a list format with each element of the list being
 the cell type specific gene markers.</p>
-<p>The example data for running the tutorial can be downloaded in this
-<a href="https://yingma0107.github.io/IRIS/documentation/03_data.html">page</a></p>
+<p>The example spatial transcriptomics data for running the tutorial can
+be downloaded in this <a href="https://yingma0107.github.io/IRIS/documentation/03_data.html">page</a>
+The example marker gene list can be downloaded in this <a href="https://drive.google.com/drive/u/1/folders/1qv1t_UI_b5fRUFgSdiy-9ao3fjgM28c2">page</a></p>
 </div>
 <div id="load-the-list-of-spatial-transcriptomics-data-across-multiple-slices" class="section level2">
 <h2>load the list of spatial transcriptomics data across multiple
 slices</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(IRIS)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="do">### read in the list of spatial transcriptomics dataset across multiple tissue slices</span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>sp_input <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&quot;./countList_SCC_ST.RDS&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>sp_input <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&quot;./countList_spatial_LIBD.RDS&quot;</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="do">#### extract the count data list and location list</span></span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>spatial_countMat_list <span class="ot">=</span> sp_input<span class="sc">$</span>spatial_countMat_list</span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>spatial_location_list <span class="ot">=</span> sp_input<span class="sc">$</span>spatial_location_list</span></code></pre></div>
