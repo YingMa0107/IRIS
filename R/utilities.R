@@ -24,6 +24,27 @@ setClass("IRIS",
 	IRIS_Prop = "data.frame",
 	internal_info = "list")
 	)
+#' Each IRISfree object has a number of slots which store information. Key slots to access
+#' are listed below.
+#'
+#' @slot countList A list of spatial count data matrix. Each spatial count data with rows as the genes and column as measured spatial locations
+#' @slot locationList A list of spatial location matrix. Each spatial location with rows as the measured spatial locations matched with those in the spatial_countMat_list and columns as theccccczzzz
+#' @slot spatialDomain A meta data frame of spatial domain labels detected by IRIS.
+#' @slot project The name of the project, default is "IRIS".
+#' @slot IRIS_Prop A meta data frame of concatenated V matrix estimated by IRIS.
+#' @slot internal_info The neccessary information that are used by IRIS computation.
+#'
+setClass("IRISfree", 
+	slots = list(
+	countList = "list",
+	locationList = "list",
+	spatialDomain = "data.frame",
+	project = "character",
+	IRIS_Prop = "data.frame",
+	internal_info = "list")
+	)
+
+
 
 #' Quality control of scRNA-seq count data
 #'
@@ -106,8 +127,11 @@ return(sce)
 #' @param sc_meta A data frame of meta data providing information on each cell in the sc_count, with each row representing the cell type and/or sample information of a specific cell. The row names of this data frame should match exactly with the column names of the sc_count data
 #' @param ct.varname character, the name of the column in metaData that provides the cell type annotation information for IRIS to perform informed domain detection.
 #' @param sample.varname character,the name of the column in metaData that specifies the sample information. If NULL, we just use the whole as one sample.
+#' @param markerList a list of marker genes, with each element of the list being the vector of cell type specific marker genes, default is NULL
+#' @param version A character indicating whether to use IRIS, IRISfree or IRISsingle. The default version is "IRIS". We highly recommend using the original IRIS version.
 #' @param minCountGene Minimum counts for each gene in the spatial count data
 #' @param minCountSpot Minimum counts for each spatial location in the spatial count data
+
 #'
 #' @importFrom SummarizedExperiment assays rowData
 #' @import methods
@@ -115,14 +139,8 @@ return(sce)
 #'
 #' @export
 #'
-createIRISObject <- function(spatial_countMat_list,spatial_location_list,sc_count,sc_meta,ct.varname,sample.varname,minCountGene = 100,minCountSpot =5){  
-#### create SingleCellExperiment Object and QC on the scRNA-seq reference data
-cat(paste0("## QC on scRNA-seq dataset! ...\n"))
-sc_eset = sc_QC(sc_count,sc_meta,ct.varname,sample.varname)
-ct.select = as.character(unique(colData(sc_eset)[,ct.varname]))
-rm(sc_count)
-rm(sc_meta)
-gc()
+createIRISObject <- function(spatial_countMat_list,spatial_location_list,sc_count,sc_meta,ct.varname,sample.varname,markerList = NULL,version = "IRIS",minCountGene = 100,minCountSpot =5){  
+
 #### QC on spatial dataset
 cat(paste0("## QC on spatially-resolved dataset! ...\n"))
 if (length(spatial_countMat_list) != length(spatial_location_list)) {
@@ -169,8 +187,8 @@ for(islice in 1:Nslices){
     spatial_location = spatial_location[match(colnames(spatial_count),rownames(spatial_location)),] 
     countList[[islice]] <- spatial_count 
     locationList[[islice]] <- spatial_location
-
 }
+names(countList) = names(spatial_countMat_list)
 rm(spatial_countMat_list)
 rm(spatial_location_list)
 gc()
@@ -178,18 +196,50 @@ common_names = Reduce(intersect, lapply(countList, row.names))
 if (length(common_names) == 0) {
 			stop("There are no common gene names in the spatial_countMat_list", call. = FALSE)
 }
-common_names = intersect(common_names,rownames(rowData(sc_eset)))
-if (length(common_names) == 0) {
-			stop("There are no common gene names in spatial count data and single cell RNAseq count data", call. = FALSE)
+## QC on scRNA-seq count
+if(version == "IRIS"){
+	#### create SingleCellExperiment Object and QC on the scRNA-seq reference data
+	cat(paste0("## QC on scRNA-seq dataset! ...\n"))
+	sc_eset = sc_QC(sc_count,sc_meta,ct.varname,sample.varname)
+	ct.select = as.character(unique(colData(sc_eset)[,ct.varname]))
+	common_genes = markerList = NULL
+	rm(sc_count)
+	rm(sc_meta)
+	gc()
+}else if(version == "IRISfree"){
+	if(is.null(markerList)){
+		stop("Please provide marker genes for at least two cell types in the markerList")
+	}else if(!is.null(markerList) & length(markerList) == 1){
+		stop("The length of markerList is 1, please provide marker genes for at least two cell types in the markerList")
+	}else if(!is.null(markerList) & length(markerList) > 1){
+	numK = length(markerList)
+	marker = unique(unlist(markerList))
+	#marker = toupper(marker)
+	cat(paste0("## Number of unique marker genes: ",length(marker)," for ",numK," cell types ...\n"))
+	commonGene = intersect(toupper(common_names),toupper(marker))
+	#### remove mitochondrial and ribosomal genes
+	commonGene  = commonGene[!(commonGene %in% commonGene[grep("mt-",commonGene)])]
+	if(length(commonGene) < numK * 10){
+		cat(paste0("## STOP! The average number of unique marker genes for each cell type is less than 10 ...\n"))
+	}
+	marker = unique(unlist(markerList))
+	numK = length(markerList)
+	common_genes = intersect(common_names,marker)
+	##### rm the mito- genes 
+	common_genes  = common_genes[!(common_genes %in% common_genes[grep("mt-",common_genes)])]
+	sc_eset = sample.varname = ct.select = ct.varname = NULL
+
+}
 }
 object <- new(
-		Class = "IRIS",
+		Class = version,
 		countList = countList,
 		locationList = locationList,
-		project = "IRIS",
-		internal_info = list(ct.varname = ct.varname,ct.select = ct.select,sample.varname = sample.varname,sc_eset = sc_eset,sliceNames = sliceNames)
+		project = version,
+		internal_info = list(ct.varname = ct.varname,ct.select = ct.select,sample.varname = sample.varname,sc_eset = sc_eset,sliceNames = sliceNames, markerList = markerList, marker = common_genes)
 		)
 gc()
 return(object)
 }
+
 

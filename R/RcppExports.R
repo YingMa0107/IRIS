@@ -16,3 +16,18 @@ IRIS_ref_iter <- function(XList, BIn, AList, VList, StrList, MuIn) {
     .Call('_IRIS_IRIS_ref_iter', PACKAGE = 'IRIS', XList, BIn, AList, VList, StrList, MuIn)
 }
 
+#' IRIS_ref function 
+#' @param XList The input list of normalized spatial data
+#' @param BIn The input list of cell type specific basis matrix B
+#' @param AList The constructed Ajacency matrix for each tissue slice
+#' @param VList List of initial matrix of cell type compositions V
+#' @param StrList List of initial spatial domains for each tissue slice
+#' @param MuIn Initial matrix of mean cell type proportion across slices
+#'
+#' @return A list
+#'
+#' @export
+IRIS_Marker_iter <- function(XList, BIn, AList, VList, StrList, MuIn) {
+    .Call('_IRIS_IRIS_Marker_iter', PACKAGE = 'IRIS', XList, BIn, AList, VList, StrList, MuIn)
+}
+
