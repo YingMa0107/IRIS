@@ -2,7 +2,7 @@
 % Please edit documentation in R/IRIS.run.R
 \name{IRIS_spatial}
 \alias{IRIS_spatial}
-\title{Integrative and Reference-Informed Spatial Domain Detection for Spatial Transcriptomics}
+\title{Accurate and Efficient Integrative Reference-Informed Spatial Domain Detection for Spatial Transcriptomics}
 \usage{
 IRIS_spatial(IRIS_object, numCluster)
 }
@@ -15,5 +15,5 @@ IRIS_spatial(IRIS_object, numCluster)
 Returns a IRIS object with domain labels stored in IRIS_object@spatial_domain for each tissue slice.
 }
 \description{
-Integrative and Reference-Informed Spatial Domain Detection for Spatial Transcriptomics
+Accurate and Efficient Integrative Reference-Informed Spatial Domain Detection for Spatial Transcriptomics
 }

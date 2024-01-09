@@ -11,6 +11,8 @@ createIRISObject(
   sc_meta,
   ct.varname,
   sample.varname,
+  markerList = NULL,
+  version = "IRIS",
   minCountGene = 100,
   minCountSpot = 5
 )
@@ -27,6 +29,10 @@ createIRISObject(
 \item{ct.varname}{character, the name of the column in metaData that provides the cell type annotation information for IRIS to perform informed domain detection.}
 
 \item{sample.varname}{character,the name of the column in metaData that specifies the sample information. If NULL, we just use the whole as one sample.}
+
+\item{markerList}{a list of marker genes, with each element of the list being the vector of cell type specific marker genes, default is NULL}
+
+\item{version}{A character indicating whether to use IRIS, IRISfree or IRISsingle. The default version is "IRIS". We highly recommend using the original IRIS version.}
 
 \item{minCountGene}{Minimum counts for each gene in the spatial count data}
 
