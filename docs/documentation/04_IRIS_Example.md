@@ -126,7 +126,7 @@ First, we jointly visualize the spatial domains detected by IRIS across multiple
 #### set the colors. Here, I just use the colors in the manuscript, if the color is not provided, the function will use default color in the package. 
 colors = c("#ebe5c2", "#D57358", "#023047", "#F7CA71", "#1697a6", "#8bc6cc", "#C9DEC3")
 #### extract the domain labels detected by IRIS
-RIS_domain =  IRIS_object@spatialDomain[,c("Slice","spotName","IRIS_domain")]
+IRIS_domain =  IRIS_object@spatialDomain[,c("Slice","spotName","IRIS_domain")]
 #### relevel the spatial domains, to make it consistent with the orders from Layer 1 to Layer 6 to white matter.
 IRIS_domain$IRIS_domain = plyr::mapvalues(IRIS_domain$IRIS_domain,from = c(0:6), to = c(5,2,3,1,0,4,6))
 #### extract the spatial location information
