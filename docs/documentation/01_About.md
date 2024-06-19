@@ -7,15 +7,11 @@ We developed a deconvolution method, 'IRIS', that can characterize the spatial o
 
 Cite `IRIS`
 -------------------
-Ying Ma, Xiang Zhou, Integrative and Reference-Informed Spatial Domain Detection for Spatial Transcriptomics, 2023 
+Ma Y, Zhou X. Accurate and efficient integrative reference-informed spatial domain detection for spatial transcriptomics. Nat Methods. 2024 Jun 6. doi: 10.1038/s41592-024-02284-9. Epub ahead of print. PMID: 38844627.
 
 Contact
 -------------------
 if you have questions, feel free to leave messages on the [github issues](https://github.com/YingMa1993/IRIS/issues) 
 
-Our group
--------------------
-[Zhou lab website](https://www.xzlab.org/)
 
-![lab](screenshot_zhoulab.png)
 
