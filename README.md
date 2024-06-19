@@ -36,7 +36,7 @@ All feedback, bug reports and suggestions are warmly welcomed! Please make sure 
 
 How to cite `IRIS`
 -------------------
-Ying Ma and Xiang Zhou. Integrative and Reference-Informed Spatial Domain Detection for Spatial Transcriptomics, in Press in Nature Methods 2024 
+Ying Ma and Xiang Zhou. Integrative and Reference-Informed Spatial Domain Detection for Spatial Transcriptomics, Nature Methods 2024， [link](https://www.nature.com/articles/s41592-024-02284-9)
 
 How to use `IRIS`
 -------------------
