@@ -25,10 +25,28 @@ spatial_location_list = sp_input$spatial_location_list
 #### check the count and spatial location, for example, the third tissue slice 151509
 print(dim(spatial_countMat_list[[3]]))
 [1] 33514  4730
+####### print the first three rows and columns of the count data of the third tissue 
+print(spatial_countMat_list[[3]][1:3,1:3])
+3 x 3 sparse Matrix of class "dgCMatrix"
+            389.198933296x417.326747046 133.43834843x233.033311356
+MIR1302-2HG                           .                          .
+FAM138A                               .                          .
+OR4F5                                 .                          .
+            437.983813464x157.830788514
+MIR1302-2HG                           .
+FAM138A                               .
+OR4F5                                 .
+####### print the dimension of the location data
 print(dim(spatial_location_list[[3]]))
 [1] 4730    2
+####### print the first three rows of spatial location data of the third tissue 
+print(spatial_location_list[[3]][1:3,])
+                                   x        y
+389.198933296x417.326747046 389.1989 417.3267
+133.43834843x233.033311356  133.4383 233.0333
+437.983813464x157.830788514 437.9838 157.8308
 ```
-The spatial transcriptomics count data for each tissue slice must be in the format of matrix or sparseMatrix, while each row represents a gene and each column represents a spatial location. The column names of the spatial data can be in the "XcoordxYcoord" (i.e., 10x10) format, but you can also maintain your original spot names, for example, barcode names. Correspondingly, the spatial location information for each tissue slice must be in the format of data frame or matrix, with each row matches with the spatial location in the spatial count data. and each column represents either the x coordinate or the y coordinate.
+The spatial transcriptomics count data for each tissue slice must be in the format of matrix or sparseMatrix, while each row represents a gene and each column represents a spatial location. The column names of the spatial data can be in the "XcoordxYcoord" (i.e., 10x10) format, but you can also maintain your original spot names, for example, barcode names. Correspondingly, the spatial location information for each tissue slice must be in the format of data frame or matrix, with each row matches with the spatial location in the spatial count data, and each column represents either the x coordinate or the y coordinate, then column names of the spatial location data must be "x" and "y".
 
 ### 2. Reference single-cell RNAseq ((scRNA-seq)) data,  e.g.,
 ```r
