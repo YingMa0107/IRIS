@@ -178,7 +178,7 @@ centers_old = t(Mu_STR$Mu)
 countList = lapply(countList, function(x) {as(x,"sparseMatrix")})
 if(version == "IRIS"){
 #### The following line is suggested by Dr. Saishi Cun from Dr. Wei Sun's lab! Thank you! It will help void the errors due to data format issues.
-countList <- lapply(countList, function(x) { if (!inherits(x, "dgCMatrix")) { return(as(x, "CsparseMatrix")) } return(x) }) 
+countList <- lapply(countList, function(x){if(!inherits(x, "dgCMatrix")){return(as(x, "CsparseMatrix"))}else{return(x)}})  
 ResList= IRIS_ref_iter(countList,B,AList,initVList,Mu_STR$STRList,Mu_STR$Mu)
 }else if(version == "IRISfree"){
   ResList= IRIS_Marker_iter(countList,B,AList,initVList,Mu_STR$STRList,Mu_STR$Mu)
